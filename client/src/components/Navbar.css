@@ -1,0 +1,29 @@
+nav{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    background-color:black
+}
+
+nav h1{
+    color: white;
+}
+
+nav ul{
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 300px;
+    border: 1px solid black;
+    align-items: center;
+    
+}
+
+nav ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0px 10px;
+    color: white;
+    cursor: pointer;
+}

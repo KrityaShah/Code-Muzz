@@ -1,33 +1,38 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import Editor from "./components/Editor"
+import Navbar from "./components/Navbar"
+import Home from "./components/Home"
 
 function App() {
-const [html, setHtml] = useState('')
-const [css, setCss] = useState('')
-const [js, setJs] = useState('')
-const [srcDoc, setSrcDoc] = useState('')
+// const [html, setHtml] = useState('')
+// const [css, setCss] = useState('')
+// const [js, setJs] = useState('')
+// const [srcDoc, setSrcDoc] = useState('')
 
-  useEffect(() => {
-   const timeout = setTimeout(() => {
-      setSrcDoc(`
-  <html>
-  <body>${html}</body>
-  <style>${css}</style>
-  <script>${js}</script>
-  </html>
-  `)
-    }, 250);
+//   useEffect(() => {
+//    const timeout = setTimeout(() => {
+//       setSrcDoc(`
+//   <html>
+//   <body>${html}</body>
+//   <style>${css}</style>
+//   <script>${js}</script>
+//   </html>
+//   `)
+//     }, 250);
 
-    return () => clearTimeout(timeout)
-  }, [html, css, js])
+//     return () => clearTimeout(timeout)
+//   }, [html, css, js])
   
 
   
 
   return (
-    <>
-      <div className="pane top-pane">
+    <>  
+
+    <Navbar/>
+    <Home/>
+      {/* <div className="pane top-pane">
         <Editor language= "xml"
          displayName = "HTML" 
          value = {html} 
@@ -51,7 +56,7 @@ const [srcDoc, setSrcDoc] = useState('')
       width= "100%"
       height="100%"
       />
-      </div>
+      </div> */}
     </>
   )
 }
