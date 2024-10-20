@@ -1,24 +1,23 @@
-nav{
+nav {
     border: 1px solid black;
     display: flex;
     align-items: center;
-    background-color:black
+    background-color: black;
 }
 
-nav h1{
+nav h1 {
     color: white;
 }
 
-nav ul{
+nav ul {
     display: flex;
-    /* justify-content: center; */
     margin-left: 300px;
     border: 1px solid black;
     align-items: center;
-    
 }
 
-nav ul li{
+nav ul li {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,4 +25,8 @@ nav ul li{
     margin: 0px 10px;
     color: white;
     cursor: pointer;
+}
+
+.nav-link {
+    text-decoration: none;
 }
