@@ -4,13 +4,7 @@ const authController = require('../controller/auth-controller')
 
 
 
-// router.route("/").get((req, res) =>{
-//     res
-//     .status(200)
-//     .send("welcome to Homepage using router");
-// })
-
-
 router.route("/").get(authController.home);
+router.route("/register").post(authController.register);
 
 module.exports = router;
