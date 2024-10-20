@@ -36,7 +36,7 @@ const register = async (req, res) =>{
 
         res
         .status(201)
-        .json({Message: "Registration Sucessfull!"})
+        .json({Message: "Registration Sucessfull!", token: await userCreated.generateToken(), userId: userCreated._id.toString()});
     } catch (error) {
         console.error(error);
         
