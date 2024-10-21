@@ -1,4 +1,5 @@
 const User = require('../model/user-model');
+const Project = require("../model/Project-model")
 const bcrypt = require('bcryptjs')
 
 // Home page:
@@ -34,7 +35,7 @@ const register = async (req, res) =>{
 
         const userCreated = await User.create({username, password : hash_password, email, phone});
 
-        res
+       return res
         .status(201)
         .json({Message: "Registration Sucessfull!", token: await userCreated.generateToken(), userId: userCreated._id.toString()});
     } catch (error) {
@@ -77,5 +78,71 @@ const login = async (req, res) =>{
     }
 }
 
+// ForProjectCreation:
 
-module.exports = {home, register, login};
+const projectCreation = async (req, res) => {
+    try {
+        const { name, description, html, css, javascript } = req.body
+      
+        const projectExist = await Project.findOne({name})
+
+        if(projectExist){
+           return res
+            .status(400)
+            .json({message: "Project name already existed!"})
+        }
+
+        const projectCreated = await Project.create({name, description, html, css, javascript});
+
+        return res
+        .status(201)
+        .json({Message: "File Created sucessfully!",  projectId: projectCreated._id,});
+       
+
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+
+// For projectid
+const getProjectById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const project = await Project.findById(id);
+
+        if (!project) {
+            return res.status(404).json({ message: "Project not found" });
+        }
+
+        return res.status(200).json(project); 
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+// to update the project
+
+const updateProject = async (req, res) => {
+    try {
+        const { id } = req.params; 
+        const updatedData = req.body; 
+
+      
+        const updatedProject = await Project.findByIdAndUpdate(id, updatedData, { new: true });
+
+        if (!updatedProject) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        return res.status(200).json(updatedProject);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+
+module.exports = {home, register, login, projectCreation,  getProjectById, updateProject};

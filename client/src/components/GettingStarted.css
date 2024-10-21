@@ -1,0 +1,101 @@
+.GettingStarted-container {
+    display: flex;
+    width: 100%;
+    height: 88.5vh;
+  }
+  h2{
+    color: white;
+  }
+  
+  .left {
+    width: 20%;
+    background-color: rgb(37, 37, 37); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left button {
+    padding: 10px 20px;
+    background-color: black;    
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .right {
+    border-left: 1px solid black;
+    width: 80%;
+    background-color: rgb(37, 37, 37); 
+  }
+
+  .right h2{
+    text-align: center;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background-color: rgb(37, 37, 37);
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    position: relative;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+  }
+  
+  button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
